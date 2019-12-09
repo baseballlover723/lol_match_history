@@ -1,2 +1,12 @@
 <h1>Index#index</h1>
 <p>Find me in app/views/index/index.html.erb</p>
+
+<%= form_tag("/") do %>
+  <%= label_tag(:region, "Region:") %>
+  <%= select_tag(:region, options_for_select([['NA', "na"], ['EUW', "euw"]])) %>
+
+  <%= label_tag(:username, "Summoner:") %>
+  <%= text_field_tag(:username) %>
+
+  <%= submit_tag("Search") %>
+<% end %>
