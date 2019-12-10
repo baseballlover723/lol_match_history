@@ -1,3 +1,5 @@
+require 'riot_client'
+
 class SummonerController < ApplicationController
   def search
     redirect_to summoner_show_path(region: params.require(:region), username: params.require(:username))
@@ -5,5 +7,6 @@ class SummonerController < ApplicationController
 
   def show
     @username = params.require(:username)
+    @result = RiotClient.get_summoner(region: RiotClient.get_region(:na), username: @username)
   end
 end
