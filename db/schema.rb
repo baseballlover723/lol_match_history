@@ -17,24 +17,14 @@ ActiveRecord::Schema.define(version: 2019_12_10_070340) do
 
   create_table "summoners", force: :cascade do |t|
     t.string "username"
-    t.string "puuid"
+    t.string "puuid", null: false
     t.string "summoner_id"
     t.string "account_id"
     t.bigint "revisionDate"
     t.string "region"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "puuid"
-    t.string "summoner_id"
-    t.string "account_id"
-    t.bigint "revisionDate"
-    t.string "region"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["puuid"], name: "index_summoners_on_puuid", unique: true
   end
 
 end
