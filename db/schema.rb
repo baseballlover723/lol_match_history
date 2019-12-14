@@ -10,21 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_070340) do
+ActiveRecord::Schema.define(version: 2019_12_14_024354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "summoners", force: :cascade do |t|
     t.string "username"
-    t.string "puuid", null: false
+    t.string "puuid"
     t.string "summoner_id"
     t.string "account_id"
-    t.bigint "revisionDate"
+    t.datetime "revision_date"
     t.string "region"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["puuid"], name: "index_summoners_on_puuid", unique: true
   end
 
 end

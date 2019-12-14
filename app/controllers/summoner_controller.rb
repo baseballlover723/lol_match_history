@@ -7,6 +7,6 @@ class SummonerController < ApplicationController
 
   def show
     @username = params.require(:username)
-    @result = RiotClient.get_summoner(region: RiotClient.get_region(:na), username: @username)
+    @summoner = RiotClient.get_summoner(region: RiotClient.get_region(:na), username: @username)
   end
 end
